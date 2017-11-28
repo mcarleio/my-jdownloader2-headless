@@ -38,5 +38,5 @@ chown -R jdownloader:jdownloader /opt/jd
 # Start JDownloader
 su -c "java -Djava.awt.headless=true -jar /opt/jd/JDownloader.jar" jdownloader
 
-# Instead of endless sleep loop, just wait endlessly for input
-mkfifo keep-running && cat keep-running
+# Endless sleep loop
+while true; do sleep 2147483647; done
