@@ -1,12 +1,13 @@
-FROM openjdk:8-jre-alpine
+FROM openjdk:8-jre
 
 MAINTAINER mcarleio <hi@mcarle.io>
 
 RUN set -x && \
-	apk add --no-cache jq && \
+	apt-get update && \
+	apt-get install -y jq && \
 	mkdir -p /opt/jd/cfg && \
 	wget -O /opt/jd/JDownloader.jar http://installer.jdownloader.org/JDownloader.jar && \
-	adduser -D -g "JDownloader" jdownloader && \
+	adduser --disabled-password --gecos "JDownloader" jdownloader --quiet && \
 	mkdir /home/jdownloader/Downloads && \
 	chown jdownloader:jdownloader /home/jdownloader/Downloads
 
