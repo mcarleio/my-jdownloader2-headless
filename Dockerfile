@@ -2,9 +2,9 @@ FROM openjdk:8-jre
 
 MAINTAINER mcarleio <hi@mcarle.io>
 
-RUN set -x && \
+RUN set +x && \
 	apt-get update && \
-	apt-get install -y jq && \
+	apt-get install -y jq openvpn expect && \
 	mkdir -p /opt/jd/cfg && \
 	wget -O /opt/jd/JDownloader.jar http://installer.jdownloader.org/JDownloader.jar && \
 	adduser --disabled-password --gecos "JDownloader" jdownloader --quiet && \
@@ -12,6 +12,8 @@ RUN set -x && \
 	chown jdownloader:jdownloader /home/jdownloader/Downloads
 
 COPY ./entrypoint.sh /
+COPY ./openvpn.sh /
+COPY ./jd.sh /
 
 VOLUME /opt/jd/cfg
 VOLUME /home/jdownloader/Downloads
