@@ -4,7 +4,7 @@ MAINTAINER mcarleio <hi@mcarle.io>
 
 RUN set +x && \
 	apt-get update && \
-	apt-get install -y jq openvpn expect && \
+	apt-get install -y jq openvpn expect procps && \
 	mkdir -p /opt/jd/cfg && \
 	wget -O /opt/jd/JDownloader.jar http://installer.jdownloader.org/JDownloader.jar && \
 	adduser --disabled-password --gecos "JDownloader" jdownloader --quiet && \

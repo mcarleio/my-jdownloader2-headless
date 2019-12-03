@@ -40,7 +40,7 @@ chown -R jdownloader:jdownloader /opt/jd
 while true; do
   if [ `ps -C java -o pid= | wc -l` -eq 0 ]; then
     # if a java process is not already running, start JD
-    su -c "java -Djava.awt.headless=true -jar /opt/jd/JDownloader.jar -norestart" jdownloader
+    su -c "`which java` -Djava.awt.headless=true -jar /opt/jd/JDownloader.jar -norestart" jdownloader
   fi
   echo "Waiting..."
   sleep 5
