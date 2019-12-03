@@ -6,6 +6,7 @@ RUN set +x && \
 	apt-get update && \
 	apt-get install -y jq openvpn expect procps && \
 	mkdir -p /opt/jd/cfg && \
+	mkdir -p /opt/jd/libs && \
 	wget -O /opt/jd/JDownloader.jar http://installer.jdownloader.org/JDownloader.jar && \
 	adduser --disabled-password --gecos "JDownloader" jdownloader --quiet && \
 	mkdir /home/jdownloader/Downloads && \

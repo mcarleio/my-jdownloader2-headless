@@ -1,6 +1,6 @@
 # my-jdownloader2-headless
 An image for JDownloader 2 in headless mode for use with my.jdownloader.org,
-combined with an optional to use OpenVPN client. 
+combined with an optional to use OpenVPN client.
 
 ## Running
 Replace the example mail, password and volume paths with your corresponding values.
@@ -14,18 +14,19 @@ docker run \
     mcarleio/my-jdownloader2-headless
 ```
 
-If you want to use VPN, you have to specify at least the path to the OpenVPN config file
-and run the container in privileged mode or at least with NET_ADMIN capability: 
-```
-# Resolves to /opt/jd/cfg/openvpn/my.ovpn
--e VPN_CONFIG_FILE=openvpn/my.ovpn" 
+If you want to use VPN, you have to add at least one OpenVPN config file 
+into `/your/path/to/config/files`/`ovpn` and run the container in
+privileged mode or at least with `NET_ADMIN` capability: 
 
+```
 # Run in privileged mode
 --privileged 
 
 # ... or run with NET_ADMIN capability
 --cap-add NET_ADMIN 
 ```
+
+When there are multiple OpenVPN config files, a random one is chosen during startup.
 
 ## Extracting RAR5
 If you encounter problems while extracting, have a look here
@@ -51,10 +52,6 @@ https://board.jdownloader.org/showthread.php?t=71069
 * __JD_GID__
 
   The GID the jdownloader user and group should have 
-  
-* __VPN_CONFIG_FILE__
-
-  The filepath to the OpenVPN config file (relative to /opt/jd/cfg/)
   
 * __VPN_USERNAME__
 
