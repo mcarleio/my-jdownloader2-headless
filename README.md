@@ -27,6 +27,18 @@ and run the container in privileged mode or at least with NET_ADMIN capability:
 --cap-add NET_ADMIN 
 ```
 
+## Extracting RAR5
+If you encounter problems while extracting, have a look here
+https://board.jdownloader.org/showthread.php?t=71069
+
+1. Check first post, in case there are changes regarding the following steps 
+2. Download the Linux version
+3. Extract the downloaded zip, which should contain two files:
+   * `sevenzipjbinding1509.jar`
+   * `sevenzipjbinding1509Linux.jar`
+4. Move them to `/your/path/to/config/files`/`libs`
+5. During next startup, these files will be copied into the correct `libs` folder of JDownloader
+
 ## Optional environment variables  
 * __MY_JD_DEVICENAME__
 

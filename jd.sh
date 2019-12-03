@@ -33,6 +33,13 @@ if [ -n "${JD_GID}" ]; then
     usermod -g ${JD_GID} jdownloader
 fi
 
+# Copy sevenzipjbinding1509.jar and sevenzipjbinding1509Linux.jar to libs folder when they are present
+if [ -f "/opt/jd/cfg/libs/sevenzipjbinding1509.jar" ] && [ -f "/opt/jd/cfg/libs/sevenzipjbinding1509Linux.jar" ]; then
+  mkdir -p /opt/jd/libs/
+  cp /opt/jd/cfg/libs/sevenzipjbinding1509.jar /opt/jd/libs/
+  cp /opt/jd/cfg/libs/sevenzipjbinding1509Linux.jar /opt/jd/libs/
+fi
+
 chown -R jdownloader:jdownloader /opt/jd
 
 # Start JDownloader in endless loop
