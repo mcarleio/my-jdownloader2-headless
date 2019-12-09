@@ -15,6 +15,7 @@ RUN set +x && \
 COPY ./entrypoint.sh /
 COPY ./openvpn.sh /
 COPY ./jd.sh /
+COPY ./start.sh /
 
 VOLUME /opt/jd/cfg
 VOLUME /home/jdownloader/Downloads
