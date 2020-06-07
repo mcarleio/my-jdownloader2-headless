@@ -25,7 +25,7 @@ setSetting /opt/jd/cfg/org.jdownloader.settings.GeneralSettings.json ".defaultdo
 
 # Optionally, define custom UID & GID for user jdownloader
 if [ -n "${JD_UID}" ]; then
-    usermod -u ${JD_UID} jdownloader
+    usermod -o -u ${JD_UID} jdownloader
 fi
 
 if [ -n "${JD_GID}" ]; then
